@@ -1,0 +1,81 @@
+.picture-area{
+    display: flex;
+    padding: 10px;
+}
+
+.holder{
+    overflow: hidden;
+    z-index: 5511;
+    height: 100%;
+    max-width: 90%;
+    max-height: 90%;
+    width:fit-content;
+}
+
+.image-area{
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    transform-origin: top left;
+    position: absolute;
+}
+
+.crop-rect{
+    position: absolute;
+    border: thin gray solid;
+    z-index: 1000;
+}
+
+.ping{
+    background-color: gray;
+    border-radius: 100%;
+    width: 0.8rem;
+    height: 0.8rem;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    position: absolute;
+}
+
+.ping:hover{
+    cursor: pointer;
+}
+
+.ping-top-left{
+    top: 0%;
+    left: 0;
+    transform: translate(-50%,-50%);
+}
+
+.ping-top-right{
+    top: 0%;
+    right: 0;
+    transform: translate(50%,-50%);
+}
+
+.ping-bottom-right{
+    bottom: 0%;
+    right: 0;
+    transform: translate(50%,50%);
+}
+
+.ping-bottom-left{
+    bottom: 0%;
+    left: 0;
+    transform: translate(-50%,50%);
+}
+
+.gray{
+    background-color: gray;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+    position: absolute;
+    filter: opacity(0.7);
+}
