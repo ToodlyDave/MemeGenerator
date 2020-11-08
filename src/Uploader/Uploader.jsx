@@ -1,20 +1,31 @@
 import React,{useEffect,useState} from 'react'
 import "./Uploader.css"
-import {Dropper} from "../Dropper/Dropper"
+import {Cropper} from "../Cropper/Cropper"
 import {gsap} from 'gsap/all'
 
 export const Uploader = () =>{
 
     let [file,setFile] = useState(null)
+    const [fileURL, setFileURL] = useState(null)
+
+    const setFileObject = (event) => {
+        if(!fileURL){
+            const fileUploaded = event.target.files[0];
+            setFileURL(URL.createObjectURL(fileUploaded))
+
+        }
+    }
     
     const setCurrentFile = (event) => {
-        //let event = e as Event;
-        event.preventDefault();
-        event.stopPropagation();
-        event.persist();
-        let dt = event.dataTransfer
-        let files = dt.files[0]
-        setFile(files)
+        if(!fileURL){
+            //let event = e as Event;
+            event.preventDefault();
+            event.stopPropagation();
+            event.persist();
+            let dt = event.dataTransfer
+            let files = dt.files[0]
+            setFileURL(URL.createObjectURL(files))
+        }
     }
 
     const setDropperColor = (e) =>{
@@ -27,16 +38,18 @@ export const Uploader = () =>{
     let pageRef = null;
     let line1Ref = null;
     let line2Ref = null;
+    let cropperRef = null;
 
     useEffect(
         ()=>{
             
             function f(){
-                if(file!=null){
+                if(fileURL!=null){
                     t
-                    .to(line1Ref,{transform:"rotate(-45deg)  translate(30%)",transformOrigin:"bottom right",duration:0.5},0)
-                    .to(line2Ref,{transform:"rotate(45deg) ",width:"40%",transformOrigin:"bottom left",duration:0.5},0)
-                    //.to(pageRef,{filter:"blur(10px)",duration:.5},0.5)
+                    .to(line1Ref,{transform:"rotate(-45deg)  translateY(30px) translateX(15px)", transformOrigin:"bottom left",duration:0.5},0)
+                    .to(line2Ref,{transform:"rotate(+50deg) translateX(-1px) translateY(43px)", width:"25%",transformOrigin:"bottom left",duration:0.5},0)
+                    /*.to(pageRef,{filter:"blur(10px)",transitionDuration:.5, scale: 1.1},0.5)*/
+                    .to(cropperRef,{transform:"scale(1)",duration:.5},1.5)   
                 }
             }
 
@@ -75,13 +88,13 @@ export const Uploader = () =>{
                         }}*/>
                     UPLOAD
                     </label>
-                    <input type="file" id="uploader" />
+                    <input type="file" id="uploader" onChange={setFileObject}/>
                     {/*<button className="Upload-button" >
                         UPLOAD
                     </button>*/}
                 </div>
-                <div>
-                    <Dropper></Dropper>
+                <div ref={ref=>cropperRef=ref} className="cropper-container">
+                    <Cropper file={fileURL} />
                 </div>
         </div>
     )
