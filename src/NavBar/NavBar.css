@@ -1,0 +1,10 @@
+.nav-bar {
+    min-height: 8vh;
+    min-width: 100vh;
+    display: flex;
+    align-items: center;
+    background-color: #02192E;
+    color: white;
+    padding: 0% 2%;
+    font-size: x-large;
+}
