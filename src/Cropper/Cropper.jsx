@@ -39,10 +39,8 @@ export const Cropper = ({file}) =>{
     const setDims = () =>{
         if(imageRef.current && holderRef.current){
             let temp = holderRef.current.getBoundingClientRect()
-            let scaleX = 1
-            let scaleY = 1
-            scaleX =  holderRef.current.offsetWidth/imageRef.current.offsetWidth
-            scaleY =  holderRef.current.offsetHeight/imageRef.current.offsetHeight
+            let scaleX =  holderRef.current.offsetWidth/imageRef.current.offsetWidth
+            let scaleY =  holderRef.current.offsetHeight/imageRef.current.offsetHeight
             let scale = Math.min(scaleX,scaleY)
             setCropperDims((cropperDim)=>{
                 return {
@@ -65,7 +63,7 @@ export const Cropper = ({file}) =>{
             })
         }
     }
-
+    
     const resize = (e) =>{
         let temp = cropRef.getBoundingClientRect()
         let temp1 = holderRef.current.getBoundingClientRect()
