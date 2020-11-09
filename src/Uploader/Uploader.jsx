@@ -41,6 +41,9 @@ export const Uploader = () =>{
     let cropperRef = null;
     let circleRef = null;
     let lineRef = null;
+    let boxRef = null;
+    let bgRef = null;
+    let contentRef = null;
 
     useEffect(
         ()=>{
@@ -54,7 +57,9 @@ export const Uploader = () =>{
                     .to(line2Ref,{top:"100%",transform:"translateY(calc(-50% - 0.1rem))",left:"-50%",width:"calc(100% + 0.05rem)",duration:0.5},0.2)
                     .to(line1Ref,{left:"50%",top:"10%",height:"calc(90% + 0.1rem)",transform:"translateY(calc(90% - 0.05rem))",duration:0.5},0.2)
                     .to(circleRef,{strokeDashoffset:"0",duration:2},0)
-                    .to(cropperRef,{transform:"scale(1)",duration:.5},1.5)   
+                    .to(boxRef,{transform:"scale(0)",duration:0.2},1.5)
+                    .to(bgRef,{transform:"scale(1) translate(-50%,-50%)",duration:0.5},1.7)
+                    .to(contentRef,{opacity:1,duration:0.2},2.2)
                 }
             }
 
@@ -67,7 +72,8 @@ export const Uploader = () =>{
                 <div ref={ref=>pageRef=ref} className="Page">
                     <div className="Drop-file-text">
                         Drop file here
-                    </div><div className="box">
+                    </div>
+                    <div ref={ref=>boxRef=ref} className="box">
                         <svg>
                         <circle ref={ref=>circleRef=ref} cx="50%" cy="50%" style={{strokeWidth:"3"}} r="48%" />
                         </svg>
@@ -108,9 +114,13 @@ export const Uploader = () =>{
                     {/*<button className="Upload-button" >
                         UPLOAD
                     </button>*/}
-                </div>
-                <div ref={ref=>cropperRef=ref} className="cropper-container">
-                    <Cropper file={fileURL} />
+                    <div ref={ref=>cropperRef=ref} className="cropper-container">
+                        <div ref={ref=>contentRef=ref} className="content-area">
+                            <Cropper file={fileURL} />
+                        </div>
+                        <div ref={ref=>bgRef=ref} className="white-background">
+                        </div>
+                    </div>
                 </div>
         </div>
     )

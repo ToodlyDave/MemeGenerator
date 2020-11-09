@@ -8,10 +8,13 @@
     height: 100%;
     max-width: 90%;
     max-height: 90%;
-    width:fit-content;
-    width: 90%;
+    width:auto;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    left: 50%;
+    transform: translateX(-50%);
     display: block;
-    overflow:hidden
 }
 
 .image-area{
@@ -21,7 +24,8 @@
     -webkit-user-select: none;
     -o-user-select: none;
     transform-origin: top left;
-    position: absolute;
+    position: relative;
+    margin: 0 auto;
 }
 
 .crop-rect{

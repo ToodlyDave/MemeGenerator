@@ -63,7 +63,7 @@ export const Cropper = ({file}) =>{
             })
         }
     }
-    
+
     const resize = (e) =>{
         let temp = cropRef.getBoundingClientRect()
         let temp1 = holderRef.current.getBoundingClientRect()
@@ -90,7 +90,6 @@ export const Cropper = ({file}) =>{
                     left: (cropperDim.left + leftDifference)>imageDims.left?cropperDim.left + leftDifference:imageDims.left,
                     width:(widthDifference>0)?widthDifference:cropperDim.width,
                 })
-                storeImageData()
                 return
             }
             case 2:{
@@ -109,7 +108,6 @@ export const Cropper = ({file}) =>{
                     left: cropperDim.left,
                     width:(widthDifference>0)?widthDifference:cropperDim.width
                 })
-                storeImageData()
                 return
             }
             case 3:{
@@ -128,7 +126,6 @@ export const Cropper = ({file}) =>{
                     left: (cropperDim.left + leftDifference)>imageDims.left?cropperDim.left + leftDifference:imageDims.left,
                     width:(widthDifference>0)?widthDifference:cropperDim.width
                 })
-                storeImageData()
                 return
             }
             case 4:{
@@ -147,7 +144,6 @@ export const Cropper = ({file}) =>{
                     left: cropperDim.left,
                     width:(widthDifference>0)?widthDifference:cropperDim.width
                 })
-                storeImageData()
                 return
             }
             default:
@@ -155,12 +151,8 @@ export const Cropper = ({file}) =>{
         }
     }
 
-    const storeImageData = () =>{
-    }
-
     const mouseLeave = () =>{
         if(clicked!==false){
-            storeImageData();
         }
         setClick(0);
     }
