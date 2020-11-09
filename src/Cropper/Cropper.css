@@ -4,12 +4,14 @@
 }
 
 .holder{
-    overflow: hidden;
     z-index: 5511;
     height: 100%;
     max-width: 90%;
     max-height: 90%;
     width:fit-content;
+    width: 90%;
+    display: block;
+    overflow:hidden
 }
 
 .image-area{
@@ -39,6 +41,7 @@
     -webkit-user-select: none;
     -o-user-select: none;
     position: absolute;
+    border: thin black solid;
 }
 
 .ping:hover{
