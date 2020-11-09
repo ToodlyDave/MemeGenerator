@@ -1,0 +1,12 @@
+.template-list-container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(50px, 45vh));
+    grid-template-rows: repeat(auto-fill, 45vh);
+    gap: 15px;
+}
+
+.temp {
+    background-color: rgb(157, 80, 230);
+    
+}
