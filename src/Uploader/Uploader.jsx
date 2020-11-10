@@ -1,11 +1,10 @@
 import React,{useEffect,useState} from 'react'
 import "./Uploader.css"
 import {Cropper} from "../Cropper/Cropper"
-import {gsap,Bounce} from 'gsap/all'
+import {gsap} from 'gsap/all'
 
 export const Uploader = () =>{
 
-    let [file,setFile] = useState(null)
     const [fileURL, setFileURL] = useState(null)
 
     const setFileObject = (event) => {
@@ -43,7 +42,6 @@ export const Uploader = () =>{
 
     let t = gsap.timeline({onReverseComplete:resetFiles});
 
-    let pageRef = null;
     let line1Ref = null;
     let line2Ref = null;
     let cropperRef = null;
@@ -78,7 +76,7 @@ export const Uploader = () =>{
 
     return(
         <div className="uploader" onDragOver={(ev)=>{ev.preventDefault()}} onDragEnter={setDropperColor} onDrop={e => {setCurrentFile(e)}} >
-                <div ref={ref=>pageRef=ref} className="Page">
+                <div className="Page">
                     <div className="Drop-file-text">
                         Drop file here
                     </div>
@@ -95,7 +93,6 @@ export const Uploader = () =>{
                             
                             </div>
                         </div>
-
                         </div>
                     </div>
                     <div className="Or-text">
@@ -113,16 +110,10 @@ export const Uploader = () =>{
                         e.target.style.borderColor = "#81A6C7";
                         e.target.style.color = "white";
                         e.target.style.borderWidth = "2px"
-                    }}
-                        /*onClick={(e) => {
-                        e.target.style.borderColor = "red";
-                        }}*/>
+                    }}>
                     UPLOAD
                     </label>
                     <input type="file" id="uploader" onChange={setFileObject}/>
-                    {/*<button className="Upload-button" >
-                        UPLOAD
-                    </button>*/}
                     <div ref={ref=>cropperRef=ref} className="cropper-container">
                         <div ref={ref=>contentRef=ref} className="content-area">
                             <div className="exit-bar" onClick={closeContentArea}>
