@@ -15,6 +15,7 @@
     left: 50%;
     transform: translateX(-50%);
     display: block;
+    margin-top: 1rem;
 }
 
 .image-area{

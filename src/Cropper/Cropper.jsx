@@ -1,6 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
 import "./Cropper.css";
-import {gsap} from 'gsap/all'
 
 export const Cropper = ({file}) =>{
 
@@ -13,6 +12,7 @@ export const Cropper = ({file}) =>{
     })
 
     let [clicked,setClick] = useState(false)
+
     let [imageDims,setImageDims] = useState({
         width:0,
         height:0,
@@ -20,8 +20,6 @@ export const Cropper = ({file}) =>{
         top:0,
         scale:1,
     })
-
-    let t = gsap.timeline()
 
     useEffect(() => {
         window.addEventListener('resize',setDims,false);
@@ -57,8 +55,6 @@ export const Cropper = ({file}) =>{
                     height:imageRef.current.offsetHeight*scale,
                     left:0,
                     top:0,
-                    holdertop:temp.top,
-                    holderLeft:temp.left,
                 }
             })
         }
@@ -152,8 +148,6 @@ export const Cropper = ({file}) =>{
     }
 
     const mouseLeave = () =>{
-        if(clicked!==false){
-        }
         setClick(0);
     }
 

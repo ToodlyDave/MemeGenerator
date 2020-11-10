@@ -33,7 +33,15 @@ export const Uploader = () =>{
         e.stopPropagation()
     }
 
-    let t = gsap.timeline();
+    const closeContentArea = () =>{
+        t.reverse()
+    }
+
+    const resetFiles = () =>{
+        setFileURL(null)
+    }
+
+    let t = gsap.timeline({onReverseComplete:resetFiles});
 
     let pageRef = null;
     let line1Ref = null;
@@ -60,6 +68,7 @@ export const Uploader = () =>{
                     .to(boxRef,{transform:"scale(0)",duration:0.2},1.5)
                     .to(bgRef,{transform:"scale(1) translate(-50%,-50%)",duration:0.5},1.7)
                     .to(contentRef,{opacity:1,duration:0.2},2.2)
+                    .to(cropperRef,{pointerEvents:"all",duration:0},2.2)
                 }
             }
 
@@ -116,7 +125,16 @@ export const Uploader = () =>{
                     </button>*/}
                     <div ref={ref=>cropperRef=ref} className="cropper-container">
                         <div ref={ref=>contentRef=ref} className="content-area">
-                            <Cropper file={fileURL} />
+                            <div className="exit-bar" onClick={closeContentArea}>
+                                <div className="exit-button">
+                                    &times;
+                                </div>
+                            </div>
+                            {
+                                fileURL!==null?
+                                <Cropper file={fileURL} />:
+                                ""
+                            }
                         </div>
                         <div ref={ref=>bgRef=ref} className="white-background">
                         </div>
