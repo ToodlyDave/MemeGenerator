@@ -1,6 +1,6 @@
 .nav-bar {
     min-height: 8vh;
-    min-width: 100vh;
+    max-width: 100vw;
     display: flex;
     align-items: center;
     background-color: #02192E;
@@ -8,4 +8,6 @@
     padding: 0% 2%;
     font-size: x-large;
     z-index: 1;
+    font-weight: 600;
+    justify-content: space-between;
 }

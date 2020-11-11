@@ -60,8 +60,8 @@ export const Uploader = () =>{
                     .to(line1Ref,{transform:"rotate(90deg)",duration:0.2},0)
                     .to(line1Ref,{height:"0",transform:"rotate(0)",duration:0},0.2)
                     .to(lineRef,{transform:"rotate(45deg)",left:"50%",width:"40%",duration:1},0.2)
-                    .to(line2Ref,{top:"100%",transform:"translateY(calc(-50% - 0.1rem))",left:"-50%",width:"calc(100% + 0.05rem)",duration:0.5},0.2)
-                    .to(line1Ref,{left:"50%",top:"10%",height:"calc(90% + 0.1rem)",transform:"translateY(calc(90% - 0.05rem))",duration:0.5},0.2)
+                    .to(line2Ref,{top:"100%",transform:"translateY(calc(-50% - 0.05rem))",left:"-50%",width:"calc(100% + 0.05rem)",duration:0.5},0.2)
+                    .to(line1Ref,{left:"50%",top:"10%",height:"calc(90% + 0.2rem)",transform:"translateY(calc(90% - 0.05rem))",duration:0.5},0.2)
                     .to(circleRef,{strokeDashoffset:"0",duration:2},0)
                     .to(boxRef,{transform:"scale(0)",duration:0.2},1.5)
                     .to(bgRef,{transform:"scale(1) translate(-50%,-50%)",duration:0.5},1.7)
@@ -111,7 +111,7 @@ export const Uploader = () =>{
                         e.target.style.color = "white";
                         e.target.style.borderWidth = "2px"
                     }}>
-                    UPLOAD
+                    Upload
                     </label>
                     <input type="file" id="uploader" onChange={setFileObject}/>
                     <div ref={ref=>cropperRef=ref} className="cropper-container">

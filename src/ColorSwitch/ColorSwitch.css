@@ -1,0 +1,31 @@
+.color-holder{
+    width: 7rem;
+    height: fit-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 1.2rem;
+}
+
+.dialer{
+    width: 3.2rem;
+    height: 1.2rem;
+    border: thin #192837 solid;
+    background-color: #344658;
+    border-radius: 1rem;
+    position: relative;
+}
+
+.dial{
+    width:1rem;
+    height: 1rem;
+    border: thin #0073DD solid;
+    background-color: #0073DD;
+    border-radius: 100%;
+    position: absolute;
+    left: 0;
+}
+
+.dial:hover{
+    cursor: pointer;
+}
